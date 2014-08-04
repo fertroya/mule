@@ -1473,7 +1473,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-site-plugin</artifactId>
-                    <version>3.0</version>
+                    <version>3.3</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -1858,6 +1858,68 @@
                                     </group>
                                 </groups>
                             </configuration>
+                        </reportPlugin>  <reportPlugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-javadoc-plugin</artifactId>
+                            <version>${javadocPluginVersion}</version>
+                            <!-- configuration>
+                                <minmemory>128m</minmemory>
+                                <maxmemory>512m</maxmemory>
+                                <charset>ISO-8859-1</charset>
+                                <encoding>ISO-8859-1</encoding>
+                                <source>1.7</source>
+                                <links>
+                                    <link>http://docs.oracle.com/javase/7/docs/api/</link>
+                                    <link>http://java.sun.com/j2ee/sdk_1.3/techdocs/api/</link>
+                                    <link>http://jakarta.apache.org/commons/beanutils/commons-beanutils-1.7.0/docs/api/</link>
+                                    <link>http://jakarta.apache.org/commons/collections/api-3.2/</link>
+                                    <link>http://jakarta.apache.org/httpcomponents/httpclient-3.x/apidocs/</link>
+                                    <link>http://jakarta.apache.org/commons/io/api-1.2/</link>
+                                    <link>http://jakarta.apache.org/commons/lang/api-2.1/</link>
+                                    <link>http://jakarta.apache.org/commons/pool/apidocs/</link>
+                                    <link>http://logging.apache.org/log4j/1.2/apidocs/</link>
+                                    <link>http://www.slf4j.org/api/</link>
+                                    <link>http://junit.sourceforge.net/javadoc/</link>
+                                </links>
+                                <groups>
+                                    <group>
+                                        <title>Mule Core</title>
+                                        <packages>org.mule*</packages>
+                                    </group>
+                                    <group>
+                                        <title>Modules (not part of the Mule core)</title>
+                                        <packages>org.mule.module.*:org.mule.components.*</packages>
+                                    </group>
+                                    <group>
+                                        <title>Transports</title>
+                                        <packages>org.mule.transport.*</packages>
+                                    </group>
+                                    <group>
+                                        <title>Testing Framework</title>
+                                        <packages>org.mule.tck*</packages>
+                                    </group>
+                                    <group>
+                                        <title>Tools</title>
+                                        <packages>org.mule.tools.*</packages>
+                                    </group>
+                                    <group>
+                                        <title>Examples</title>
+                                        <packages>org.mule.example.*</packages>
+                                    </group>
+                                </groups>
+                            </configuration -->
+
+                         <configuration>
+                             <doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
+                             <docletArtifact>
+                                 <groupId>org.umlgraph</groupId>
+                                 <artifactId>umlgraph</artifactId>
+                                 <version>5.6.6</version>
+                             </docletArtifact>
+                             <additionalparam>-views -all</additionalparam>
+                             <useStandardDocletOptions>true</useStandardDocletOptions>
+                         </configuration>
+
                         </reportPlugin>
                         <!--
                             When there is JXR cross-refernce output available,
@@ -2119,24 +2181,4 @@
             </build>
         </profile>
     </profiles>
-    
-     <reporting>
-                 <plugins>
-                     <plugin>
-                         <groupId>org.apache.maven.plugins</groupId>
-                         <artifactId>maven-javadoc-plugin</artifactId>
-                         <version>2.9</version>
-                         <configuration>
-                             <doclet>org.umlgraph.doclet.UmlGraphDoc</doclet>
-                             <docletArtifact>
-                                 <groupId>org.umlgraph</groupId>
-                                 <artifactId>umlgraph</artifactId>
-                                 <version>5.6</version>
-                             </docletArtifact>
-                             <additionalparam>-views -all</additionalparam>
-                             <useStandardDocletOptions>true</useStandardDocletOptions>
-                         </configuration>
-                     </plugin>
-                 </plugins>
-    </reporting>
 </project>
